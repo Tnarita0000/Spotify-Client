@@ -1,2 +1,3 @@
-.nuxt/
 node_modules/
+src/server/.spotify.env
+src/server/public/javascript
