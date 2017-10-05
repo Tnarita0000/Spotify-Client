@@ -1,2 +1,2 @@
 node_modules/
-.spotify.env
+src/server/.spotify.env
