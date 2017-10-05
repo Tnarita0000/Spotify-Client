@@ -4,9 +4,9 @@ const request      = require('request');
 const querystring  = require('querystring');
 const cookieParser = require('cookie-parser');
 
-const client_id     = '';
-const client_secret = '';
-const redirect_uri  = '';
+const client_id     = process.env.CLIENT_ID;
+const client_secret = process.env.CLIENT_SECRET;
+const redirect_uri  = process.env.REDIRECT_URI;
 
 let stateKey = 'spotify_auth_state';
 const app = express();

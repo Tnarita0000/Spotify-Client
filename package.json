@@ -1,9 +1,8 @@
 {
   "scripts": {
-    "dev": "node src/server/app.js",
+    "dev": "source ./src/server/.spotify.env; node src/server/app.js",
     "build": "webpack --config webpack.config.js",
-    "build:watch": "webpack --config webpack.config.js --watch",
-    "loadenv": "sourse ./src/server/.spotify.env"
+    "build:watch": "webpack --config webpack.config.js --watch"
   },
   "dependencies": {
     "vue": "^2.4.4",
