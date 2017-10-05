@@ -25,6 +25,10 @@ app.get('/', (req, res) => {
   res.sendFile(rootPath + '/index.html');
 });
 
+app.get('/user', (req, res) => {
+  res.sendFile(rootPath + '/user.html');
+});
+
 app.get('/login', function(req, res) {
   const state = generateRandomString(16);
   res.cookie(stateKey, state);
@@ -74,7 +78,7 @@ app.get('/callback', function(req, res) {
           console.log(body);
         });
 
-        res.redirect('/#' + querystring.stringify({
+        res.redirect('/user#' + querystring.stringify({
           access_token: access_token, refresh_token: refresh_token
         }));
       } else {
