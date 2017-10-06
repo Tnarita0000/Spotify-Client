@@ -1,5 +1,5 @@
 import axios from 'axios'
-import User from '../models/user'
+import User from '../model/user'
 
 export default class UserApi {
   load(access_token) {
