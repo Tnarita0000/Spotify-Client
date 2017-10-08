@@ -1,0 +1,13 @@
+body {
+  background-image: linear-gradient(-90deg, #0F000A, #454545);
+  /*background-image: linear-gradient(-90deg, #010104, #171717);*/
+  color: white;
+  font-family: 'MV Boil', sans-serif;
+  font-style: normal;
+  color: #eee;
+  background-color: #222;
+}
+a {
+  text-decoration: none;
+  color: #eee;
+}

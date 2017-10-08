@@ -12,7 +12,6 @@ let stateKey = 'spotify_auth_state';
 const app = express();
 app.use(express.static(__dirname + '/public')).use(cookieParser());
 
-const rootPath = path.join(__dirname + '/public/view');
 const generateRandomString = function(length) {
   let text = '';
   const possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
@@ -20,6 +19,8 @@ const generateRandomString = function(length) {
     text += possible.charAt(Math.floor(Math.random() * possible.length));
   return text;
 };
+
+const rootPath = path.join(__dirname + '/public/view');
 
 app.get('/', (req, res) => {
   res.sendFile(rootPath + '/index.html');
@@ -33,7 +34,7 @@ app.get('/login', function(req, res) {
   const state = generateRandomString(16);
   res.cookie(stateKey, state);
 
-  const scope = 'user-read-private user-read-email';
+  const scope = 'user-read-private user-read-email playlist-read-private';
   res.redirect('https://accounts.spotify.com/authorize?' +
     querystring.stringify({
       response_type: 'code', client_id: client_id, scope: scope,

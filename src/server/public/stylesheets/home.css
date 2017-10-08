@@ -1,15 +1,3 @@
-body {
-  font-family: 'MV Boil', sans-serif;
-  font-style: normal;
-  color: #eee;
-  background-color: #222;
-}
-
-a {
-  text-decoration: none;
-  color: #eee;
-}
-
 .btn {
   border: solid 3px #ffffff;
   border-radius: 1.875rem;

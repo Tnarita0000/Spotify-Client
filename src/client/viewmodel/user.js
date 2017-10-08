@@ -1,19 +1,33 @@
 import Vue from 'vue'
 import Component from 'vue-class-component'
-import UserApi from '../api/user'
 import UrlParser from '../mixins/url_parser'
+import UserModel from '../model/user'
+import PlaylistsModel from '../model/playlists'
+import userHTML from '../assets/html/user.html'
 
 @Component({
   mixins: [UrlParser],
+  template: userHTML
 })
 class ViewModel extends Vue {
+  constructor() {
+    super();
+    this.userModel = new UserModel();
+    this.playlistsModel = new PlaylistsModel();
+    this.user = null;
+    this.playlists = null;
+    this.isUserLoaded = false;
+  }
+
   created() {
-    this.api = new UserApi();
-    if (UrlParser.params.error) {
-      alert('There was an error during the authentication');
-    } else {
-      this.api.load(UrlParser.params.access_token);
-    }
+    const access_token = UrlParser.params.access_token;
+    this.userModel.load(access_token).then(data => {
+      this.user = data;
+      this.isUserLoaded = true;
+    });
+    this.playlistsModel.load(access_token).then(data => {
+      this.playlists = data;
+    });
   }
 }
 

@@ -1,10 +1,12 @@
-export default class User {
-  constructor(json){
-    this.name          = json.name;
-    this.email         = json.display_name;
-    this.external_urls = json.external_urls;
-    this.followers     = json.followers;
-    this.href          = json.href;
-    this.images        = json.id;
+import UserApi from '../api/user'
+
+export default class UserModel {
+  constructor() {
+    this.api = new UserApi();
   }
+
+  load(access_token) {
+    return this.api.load(access_token);
+  }
+
 }

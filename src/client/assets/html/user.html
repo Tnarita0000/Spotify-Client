@@ -1,0 +1,26 @@
+<div id="user" v-if='isUserLoaded'>
+  <h1>Profile</h1>
+  <div class='user-icon-box'>
+    <img class='user-icon' :src="user.images[0].url"/>
+  </div>
+  <table>
+    <tr>
+      <th>ID</th>
+      <td>{{user.id}}</td>
+    </tr>
+    <tr>
+      <th>Email</th>
+      <td>{{user.email}}</td>
+    </tr>
+    <tr>
+      <th></th>
+      <td></td>
+    </tr>
+  </table>
+  <h2>Your Playlists</h2>
+  <ul class='playlist-box' v-if='playlists'>
+    <li v-for='item in playlists.items'>
+      <img :src="item.images[1].url" v-if='item.images[1]'/>
+    </li>
+  </ul>
+</div>

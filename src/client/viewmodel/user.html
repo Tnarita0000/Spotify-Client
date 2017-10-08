@@ -1,0 +1,18 @@
+<div>
+  <h1>Profile</h1>
+  <img :src="user.images[0].url"/>
+  <table v-if='isUserLoaded'>
+    <tr>
+      <th>ID</th>
+      <td>{{user.id}}</td>
+    </tr>
+    <tr>
+      <th>Email</th>
+      <td>{{user.email}}</td>
+    </tr>
+    <tr>
+      <th></th>
+      <td></td>
+    </tr>
+  </table>
+</div>
