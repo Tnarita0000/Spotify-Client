@@ -23,11 +23,11 @@ const generateRandomString = function(length) {
 const rootPath = path.join(__dirname + '/public/view');
 
 app.get('/', (req, res) => {
-  res.sendFile(rootPath + '/index.html');
+  res.sendFile(rootPath + '/public.html');
 });
 
 app.get('/user', (req, res) => {
-  res.sendFile(rootPath + '/user.html');
+  res.sendFile(rootPath + '/home.html');
 });
 
 app.get('/login', function(req, res) {
