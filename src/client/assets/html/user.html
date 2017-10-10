@@ -20,7 +20,7 @@
   <h2>Your Playlists</h2>
   <ul class='playlist-box' v-if='playlists'>
     <li v-for='item in playlists.items'>
-      <img :src="item.images[1].url" v-if='item.images[1]'/>
+      <img :src="item.images[0].url" v-if='item.images[0]'/>
     </li>
   </ul>
 </div>
