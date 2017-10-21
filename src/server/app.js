@@ -23,11 +23,11 @@ const generateRandomString = function(length) {
 const rootPath = path.join(__dirname + '/public/view');
 
 app.get('/', (req, res) => {
-  res.sendFile(rootPath + '/public.html');
+  res.sendFile(rootPath + '/home.html');
 });
 
-app.get('/user', (req, res) => {
-  res.sendFile(rootPath + '/home.html');
+app.get('/dashboard', (req, res) => {
+  res.sendFile(rootPath + '/dashboard.html');
 });
 
 app.get('/login', function(req, res) {
@@ -79,7 +79,7 @@ app.get('/callback', function(req, res) {
           console.log(body);
         });
 
-        res.redirect('/user#' + querystring.stringify({
+        res.redirect('/dashboard#' + querystring.stringify({
           access_token: access_token, refresh_token: refresh_token
         }));
       } else {

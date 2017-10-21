@@ -1,36 +1,9 @@
 import Vue from 'vue'
-import Component from 'vue-class-component'
-import UrlParser from '../mixins/url_parser'
-import UserModel from '../model/user'
-import PlaylistsModel from '../model/playlists'
-import userHTML from '../assets/html/user.html'
+import AppComponent from '../components/App.vue'
 
-@Component({
-  mixins: [UrlParser],
-  template: userHTML
-})
-class ViewModel extends Vue {
-  constructor() {
-    super();
-    this.userModel = new UserModel();
-    this.playlistsModel = new PlaylistsModel();
-    this.user = null;
-    this.playlists = null;
-    this.isUserLoaded = false;
+new Vue({
+  el: "#app",
+  components: {
+    AppComponent
   }
-
-  created() {
-    const access_token = UrlParser.params.access_token;
-    this.userModel.load(access_token).then(data => {
-      this.user = data;
-      this.isUserLoaded = true;
-    });
-    this.playlistsModel.load(access_token).then(data => {
-      this.playlists = data;
-    });
-  }
-}
-
-new ViewModel({
-  el: "#main",
 });
