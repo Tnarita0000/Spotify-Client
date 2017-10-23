@@ -8,5 +8,4 @@ export default class UserModel {
   load(access_token) {
     return this.api.load(access_token);
   }
-
 }
