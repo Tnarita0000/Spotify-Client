@@ -1,13 +1,21 @@
 <template>
   <div class="sidenav">
-    <h1>hoge</h1>
+    <div class="player" v-for="item in player.items">
+      <p><img :src="item.track.album.images[2].url"/></p>
+      <span>{{item.track.name}}</span>
+    </div>
   </div>
 </template>
 <script>
 import Vue from 'vue'
 import Component from 'vue-class-component'
+import Player from '../jsonmodel/player'
 
-@Component({})
+@Component({
+  props: {
+    player: Player,
+  }
+})
 export default class SideNavigationBarComponent extends Vue {
 }
 </script>
