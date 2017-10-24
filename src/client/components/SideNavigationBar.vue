@@ -1,5 +1,8 @@
 <template>
   <div class="sidenav">
+    <div class="sidenav-title">
+      <h2>History</h2>
+    </div>
     <div class="player" v-for="item in player.items">
       <p><img :src="item.track.album.images[2].url"/></p>
       <span>{{item.track.name}}</span>
@@ -21,6 +24,7 @@ export default class SideNavigationBarComponent extends Vue {
 </script>
 <style scoped>
 .sidenav {
+  border-left: solid 1px #444;
   height: 100%;
   min-width: 200px;
   width: 10%;
@@ -31,7 +35,10 @@ export default class SideNavigationBarComponent extends Vue {
   right: 0;
   background-color: #111;
   overflow-x: hidden;
-  padding-top: 60px;
   transition: 0.5s;
+  padding-left: 15px;
+}
+.sidenav::-webkit-scrollbar {
+  display: none;
 }
 </style>
