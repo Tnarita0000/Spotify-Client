@@ -5,7 +5,6 @@ import UrlParser from '../mixins/url_parser'
 import UserModel from '../model/user'
 import PlaylistsModel from '../model/playlists'
 import PlayerModel from '../model/player'
-
 import html from '../assets/html/dashboard.html'
 
 @Component({
@@ -19,10 +18,10 @@ class ViewModel extends Vue {
   constructor() {
     super();
     this.userModel = new UserModel();
-    this.playlistsModel = new PlaylistsModel();
-    this.playerModel = new PlayerModel();
     this.user = null;
-    this.playlists = null;
+    //this.playlistsModel = new PlaylistsModel();
+    //this.playlists = null;
+    this.playerModel = new PlayerModel();
     this.player = null;
     this.isUserLoaded = false;
   }
@@ -33,9 +32,9 @@ class ViewModel extends Vue {
       this.user = data;
       this.isUserLoaded = true;
     });
-    this.playlistsModel.load(access_token).then(data => {
-      this.playlists = data;
-    });
+    //this.playlistsModel.load(access_token).then(data => {
+    //  this.playlists = data;
+    //});
     this.playerModel.loadRecentlyPlayed(access_token).then(data => {
       this.player = data;
     });
