@@ -3,6 +3,7 @@ const express      = require('express');
 const request      = require('request');
 const querystring  = require('querystring');
 const cookieParser = require('cookie-parser');
+require('dotenv').config();
 
 const client_id     = process.env.CLIENT_ID;
 const client_secret = process.env.CLIENT_SECRET;

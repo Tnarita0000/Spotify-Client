@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "dev": "source ./src/server/.spotify.env; node src/server/app.js",
+    "dev": "node src/server/app.js",
     "build": "webpack --config webpack.config.js",
     "build:watch": "webpack --config webpack.config.js --watch"
   },
@@ -20,6 +20,7 @@
     "babel-preset-stage-3": "^6.24.1",
     "cookie-parser": "^1.4.3",
     "css-loader": "^0.28.7",
+    "dotenv": "^4.0.0",
     "express": "^4.16.1",
     "glob": "^7.1.2",
     "html-loader": "^0.5.1",
