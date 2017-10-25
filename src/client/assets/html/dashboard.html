@@ -1,5 +1,5 @@
 <div id="user" v-if='isUserLoaded'>
-  <side-navigation-bar-component :player="player"/>
+  <side-navigation-bar-component :track="recentPlayedTrack"/>
   <h1>Profile</h1>
   <div class='user-icon-box'>
     <img class='user-icon' :src="user.images[0].url"/>

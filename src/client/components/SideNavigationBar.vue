@@ -3,8 +3,8 @@
     <div class="sidenav-title">
       <h2>History</h2>
     </div>
-    <template v-if="player">
-      <div class="player" v-for="item in player.items">
+    <template v-if="track">
+      <div class="player" v-for="item in track.items">
         <p><img :src="item.track.album.images[2].url"/></p>
         <span>{{item.track.name}}</span>
       </div>
@@ -18,7 +18,7 @@ import Player from '../jsonmodel/player'
 
 @Component({
   props: {
-    player: Player,
+    track: Player,
   }
 })
 export default class SideNavigationBarComponent extends Vue {

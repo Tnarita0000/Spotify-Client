@@ -5,6 +5,7 @@ import UrlParser from '../mixins/url_parser'
 import UserModel from '../model/user'
 import PlaylistsModel from '../model/playlists'
 import PlayerModel from '../model/player'
+import AudioAnalysisModel from '../model/audio_analysis'
 import html from '../assets/html/dashboard.html'
 
 @Component({
@@ -17,26 +18,28 @@ import html from '../assets/html/dashboard.html'
 class ViewModel extends Vue {
   constructor() {
     super();
-    this.userModel = new UserModel();
     this.user = null;
-    //this.playlistsModel = new PlaylistsModel();
-    //this.playlists = null;
-    this.playerModel = new PlayerModel();
-    this.player = null;
+    this.recentPlayedTrack = null;
+    this.analyzedTracks = [];
     this.isUserLoaded = false;
   }
 
   created() {
+    const userModel = new UserModel();
+    const playerModel = new PlayerModel();
+    const audioAnalysisModel = new AudioAnalysisModel();
     const access_token = UrlParser.params.access_token;
-    this.userModel.load(access_token).then(data => {
+    userModel.load(access_token).then(data => {
       this.user = data;
       this.isUserLoaded = true;
     });
-    //this.playlistsModel.load(access_token).then(data => {
-    //  this.playlists = data;
-    //});
-    this.playerModel.loadRecentlyPlayed(access_token).then(data => {
-      this.player = data;
+    playerModel.loadRecentlyPlayed(access_token).then(data => {
+      this.recentPlayedTrack = data;
+      data.items.map(item => {
+        audioAnalysisModel.loadAudioAnalysis(access_token, item.track.id).then(data => {
+          this.analyzedTracks.push(data);
+        });
+      });
     });
   }
 }
