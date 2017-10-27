@@ -6,7 +6,8 @@
     <template v-if="track">
       <div class="player" v-for="item in track.items">
         <p><img :src="item.track.album.images[2].url"/></p>
-        <span>{{item.track.name}}</span>
+        <p class="">{{item.track.artists[0].name}}</p>
+        <p class="track__name">{{item.track.name}}</p>
       </div>
     </template>
   </div>
@@ -41,5 +42,10 @@ export default class SideNavigationBarComponent extends Vue {
 }
 .sidenav::-webkit-scrollbar {
   display: none;
+}
+.track__name {
+  padding-top: 1px;
+  padding-bottom: 12px;
+  font-size: 14px;
 }
 </style>

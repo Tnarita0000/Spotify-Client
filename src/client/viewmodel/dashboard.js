@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Component from 'vue-class-component'
 import SideNavigationBarComponent from '../components/SideNavigationBar.vue'
+import CurrentPlayingFooterComponent from '../components/CurrentPlayingFooter.vue'
 import UrlParser from '../mixins/url_parser'
 import UserModel from '../model/user'
 import PlaylistsModel from '../model/playlists'
@@ -12,7 +13,8 @@ import html from '../assets/html/dashboard.html'
   mixins: [UrlParser],
   template: html,
   components: {
-    SideNavigationBarComponent
+    SideNavigationBarComponent,
+    CurrentPlayingFooterComponent,
   }
 })
 class ViewModel extends Vue {
