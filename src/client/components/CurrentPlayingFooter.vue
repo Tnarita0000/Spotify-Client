@@ -1,7 +1,7 @@
 <template>
   <div class="footer">
     <div class="sidenav-title">
-      <h2>History</h2>
+      <img width="90" src="images/headphone.gif">
     </div>
   </div>
 </template>
