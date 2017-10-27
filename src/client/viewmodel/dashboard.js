@@ -19,8 +19,10 @@ class ViewModel extends Vue {
   constructor() {
     super();
     this.user = null;
+    this.player = null;
     this.recentPlayedTrack = null;
-    this.analyzedTracks = [];
+    this.currentPlayingTrack = null;
+    this.analyzedTrack = null;
     this.isUserLoaded = false;
   }
 
@@ -33,13 +35,17 @@ class ViewModel extends Vue {
       this.user = data;
       this.isUserLoaded = true;
     });
+    playerModel.load(access_token).then(data => {
+      this.player = data;
+      audioAnalysisModel.loadAudioAnalysis(access_token, data.item.id).then(data => {
+        this.analyzedTrack = data;
+      });
+    });
+    playerModel.loadCurrentPlaying(access_token).then(data => {
+      this.currentPlayingTrack = data;
+    });
     playerModel.loadRecentlyPlayed(access_token).then(data => {
       this.recentPlayedTrack = data;
-      data.items.map(item => {
-        audioAnalysisModel.loadAudioAnalysis(access_token, item.track.id).then(data => {
-          this.analyzedTracks.push(data);
-        });
-      });
     });
   }
 }

@@ -14,11 +14,10 @@
 <script>
 import Vue from 'vue'
 import Component from 'vue-class-component'
-import Player from '../jsonmodel/player'
 
 @Component({
   props: {
-    track: Player,
+    track: Object,
   }
 })
 export default class SideNavigationBarComponent extends Vue {

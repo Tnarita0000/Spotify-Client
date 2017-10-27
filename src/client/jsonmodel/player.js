@@ -1,9 +1,29 @@
 export default class Player {
   constructor(json) {
-    this.cursors = json.cursors;
-    this.href = json.href;
-    this.items = json.items;
-    this.limit = json.limit;
-    this.next = json.next;
+    this._root;
+    this._recentlyPlayed;
+    this._currentPlaying;
   }
+
+  set root(json) {
+    this._root = json;
+  }
+  get root() {
+    return this._root;
+  }
+
+  set recentlyPlayed(json) {
+    this._recentlyPlayed = json;
+  }
+  get recentlyPlayed() {
+    return this._recentlyPlayed;
+  }
+
+  set currentPlaying(json) {
+    this._currentPlaying = json;
+  }
+  get currentPlaying() {
+    return this._currentPlaying;
+  }
+
 }
