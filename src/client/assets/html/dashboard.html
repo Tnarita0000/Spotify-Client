@@ -1,24 +1,23 @@
-<div id="user" v-if='isUserLoaded'>
-  <side-navigation-bar-component :track="recentPlayedTrack"/>
-  <h1>Profile</h1>
-  <div class='user-icon-box'>
-    <img class='user-icon' :src="user.images[0].url"/>
+<div>
+  <div id="dashboard" v-if='isUserLoaded'>
+    <h1>Profile</h1>
+    <div class='user-icon-box'>
+      <img class='user-icon' :src="user.images[0].url"/>
+    </div>
+    <table>
+      <tr>
+        <th>ID</th>
+        <td>{{user.id}}</td>
+      </tr>
+      <tr>
+        <th>Email</th>
+        <td>{{user.email}}</td>
+      </tr>
+    </table>
+    <track-analyzer-component :track='analyzedTrack' v-if='analyzedTrack'/>
   </div>
-  <table>
-    <tr>
-      <th>ID</th>
-      <td>{{user.id}}</td>
-    </tr>
-    <tr>
-      <th>Email</th>
-      <td>{{user.email}}</td>
-    </tr>
-  </table>
-  <!--h2>Your Playlists</h2>
-  <ul class='playlist-box' v-if='playlists'>
-    <li v-for='item in playlists.items'>
-      <img :src="item.images[0].url" v-if='item.images[0]'/>
-    </li>
-  </ul-->
+  <div class='sidebar'>
+    <side-navigation-bar-component :track="recentPlayedTrack"/>
+  </div>
   <current-playing-footer-component :track="currentPlayingTrack"/>
 </div>

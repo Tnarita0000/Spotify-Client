@@ -33,7 +33,6 @@ export default class PlayerApi {
       }
     })
     this.player.currentPlaying = res.data;
-    console.log(res.data);
     return this.player.currentPlaying;
   }
 }

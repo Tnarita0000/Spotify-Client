@@ -1,7 +1,13 @@
 <template>
   <div class="footer">
-    <div class="sidenav-title">
-      <img width="90" src="images/headphone.gif">
+    <div class='current-playing' v-if='track'>
+      <span>
+        <img :src="track.item.album.images[0].url"/>
+      </span>
+      <div class='track-info'>
+        <span class='tack-name'>{{track.item.name}}</span><br/>
+        <span class='track-artist'>{{track.item.artists[0].name}}</span>
+      </div>
     </div>
   </div>
 </template>
@@ -33,4 +39,11 @@ export default class CurrentPlayingFooterComponent extends Vue {
 .sidenav::-webkit-scrollbar {
   display: none;
 }
+.footer img {
+  float: left;
+}
+.current-playing img {
+  height: 90px;
+}
+
 </style>

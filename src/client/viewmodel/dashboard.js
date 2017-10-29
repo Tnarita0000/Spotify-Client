@@ -1,7 +1,10 @@
 import Vue from 'vue'
+import VueChartJs from 'vue-chartjs'
+import {Bar} from 'vue-chartjs'
 import Component from 'vue-class-component'
 import SideNavigationBarComponent from '../components/SideNavigationBar.vue'
 import CurrentPlayingFooterComponent from '../components/CurrentPlayingFooter.vue'
+import TrackAnalyzerComponent from '../components/TrackAnalyzer.vue'
 import UrlParser from '../mixins/url_parser'
 import UserModel from '../model/user'
 import PlaylistsModel from '../model/playlists'
@@ -15,6 +18,7 @@ import html from '../assets/html/dashboard.html'
   components: {
     SideNavigationBarComponent,
     CurrentPlayingFooterComponent,
+    TrackAnalyzerComponent,
   }
 })
 class ViewModel extends Vue {
