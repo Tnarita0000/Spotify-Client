@@ -24,28 +24,3 @@ import Component from 'vue-class-component'
 export default class SideNavigationBarComponent extends Vue {
 }
 </script>
-<style scoped>
-.sidenav {
-  border-left: solid 1px #444;
-  height: 100%;
-  min-width: 200px;
-  width: 10%;
-  position: fixed;
-  float: right;
-  z-index: 1;
-  top: 0;
-  right: 0;
-  background-color: #111;
-  overflow-x: hidden;
-  transition: 0.5s;
-  padding-left: 15px;
-}
-.sidenav::-webkit-scrollbar {
-  display: none;
-}
-.track__name {
-  padding-top: 1px;
-  padding-bottom: 12px;
-  font-size: 14px;
-}
-</style>

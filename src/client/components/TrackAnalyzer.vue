@@ -1,5 +1,7 @@
 <template>
-  <line-chart :width='1200' :height='400' :labels='labels' :timbre='timbre'/>
+  <div style="width:100%">
+    <line-chart :height='400' :labels='labels' :timbre='tim' :idx="idx" :key="idx" v-for="(tim, idx) in timbre"/>
+  </div>
 </template>
 <script>
 import Vue from 'vue'
@@ -15,7 +17,7 @@ export default class TrackAnalyzerComponent extends Vue {
   constructor() {
     super();
     this.labels   = [];
-    this.timbre = [];
+    this.timbre   = [];
     for(let i=0; i<12; i++) {
       this.timbre[i] = [];
     }
@@ -34,17 +36,17 @@ export default class TrackAnalyzerComponent extends Vue {
 }
 
 TrackAnalyzerComponent.component('line-chart', {
-  props: ['labels', 'timbre'],
+  props: ['idx', 'labels', 'timbre'],
   extends: VueChartJs.Line,
   mounted () {
     const datasets = [];
-    this.timbre.map((value, idx) => {
-      datasets.push({
-        label: 'key' + idx,
-        backgroundColor: '#f87979',
-        data: this.timbre[idx],
-        radius: 0
-      });
+    datasets.push({
+      label: 'key' + this.idx,
+      backgroundColor: '#f87979',
+      data: this.timbre,
+      fill: false,
+      borderColor: "#a51f54",
+      radius: 0
     });
     this.renderChart(
       {
@@ -53,13 +55,16 @@ TrackAnalyzerComponent.component('line-chart', {
       },
       // options
       {
-        responsive: false,
+        responsive: true,
         maintainAspectRatio: false,
         pointDot: false,
         scales: {
           xAxes: [{display: false}],
           yAxes: [{display: false}]
-        }
+        },
+        legend: {
+          display: false
+        },
       }
     )
   }
