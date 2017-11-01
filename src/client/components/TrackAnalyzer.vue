@@ -1,5 +1,8 @@
 <template>
-  <line-chart :width='1200' :height='400' :labels='labels' :timbre='timbre'/>
+  <div style="width:100%">
+    <line-chart :height='400' :labels='labels' :timbre='timbre'/>
+  </div>
+
 </template>
 <script>
 import Vue from 'vue'
@@ -53,7 +56,7 @@ TrackAnalyzerComponent.component('line-chart', {
       },
       // options
       {
-        responsive: false,
+        responsive: true,
         maintainAspectRatio: false,
         pointDot: false,
         scales: {

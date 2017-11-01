@@ -1,6 +1,24 @@
+
 li {
   list-style: none;
 }
+
+.wrap {
+  width: 100%;
+  height: 100%;
+  display: flex;
+}
+
+
+.mainArea {
+  width: 85vw;
+  overflow-x: hidden;
+}
+
+.sidenav {
+  width: 15vw;
+}
+
 
 .user-icon-box {
   height: 150px;
@@ -27,4 +45,21 @@ li {
   float: left;
   margin: 12px;
   border-radius: 10px;
+}
+
+.sidenav {
+  border-left: solid 1px #444;
+  padding-left: 15px;
+  width: 15vw;
+  background-color: #111;
+  overflow-x: hidden;
+  transition: 0.5s;
+}
+.sidenav::-webkit-scrollbar {
+  display: none;
+}
+.track__name {
+  padding-top: 1px;
+  padding-bottom: 12px;
+  font-size: 14px;
 }

@@ -1,5 +1,5 @@
-<div>
-  <div id="dashboard" v-if='isUserLoaded'>
+<div class="wrap">
+  <div class="mainArea" id="dashboard" v-if='isUserLoaded'>
     <h1>Profile</h1>
     <div class='user-icon-box'>
       <img class='user-icon' :src="user.images[0].url"/>
@@ -16,8 +16,6 @@
     </table>
     <track-analyzer-component :track='analyzedTrack' v-if='analyzedTrack'/>
   </div>
-  <div class='sidebar'>
-    <side-navigation-bar-component :track="recentPlayedTrack"/>
-  </div>
+  <side-navigation-bar-component :track="recentPlayedTrack"/>
   <current-playing-footer-component :track="currentPlayingTrack"/>
 </div>
