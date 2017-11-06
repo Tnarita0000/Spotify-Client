@@ -12,6 +12,7 @@ li {
 
 .mainArea {
   width: 85vw;
+  padding-bottom: 200px;
   overflow-x: hidden;
 }
 

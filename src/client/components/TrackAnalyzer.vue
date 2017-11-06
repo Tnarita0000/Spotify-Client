@@ -1,6 +1,6 @@
 <template>
   <div style="width:100%">
-    <line-chart :height='400' :labels='labels' :timbre='tim' :idx="idx" :key="idx" v-for="(tim, idx) in timbre"/>
+    <line-chart :height='250' :labels='labels' :timbre='tim' :idx="idx" :key="idx" v-for="(tim, idx) in timbre"/>
   </div>
 </template>
 <script>
