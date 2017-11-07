@@ -1,19 +1,5 @@
 <div class="wrap">
-  <div class="mainArea" id="dashboard" v-if='isUserLoaded'>
-    <h1>Profile</h1>
-    <div class='user-icon-box'>
-      <img class='user-icon' :src="user.images[0].url"/>
-    </div>
-    <table>
-      <tr>
-        <th>ID</th>
-        <td>{{user.id}}</td>
-      </tr>
-      <tr>
-        <th>Email</th>
-        <td>{{user.email}}</td>
-      </tr>
-    </table>
+  <div class="mainArea" id="dashboard">
     <track-analyzer-component :track='analyzedTrack' v-if='analyzedTrack'/>
   </div>
   <side-navigation-bar-component :track="recentPlayedTrack"/>
