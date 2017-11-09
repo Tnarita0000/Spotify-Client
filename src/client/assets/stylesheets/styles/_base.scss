@@ -1,0 +1,30 @@
+html {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  background-image: linear-gradient(-90deg, #0F000A, #454545);
+  /*background-image: linear-gradient(-90deg, #010104, #171717);*/
+  color: white;
+  font-family: 'MV Boil', sans-serif;
+  font-style: normal;
+  color: #eee;
+  background-color: #222;
+  width: 100%;
+  height: 100%;
+}
+
+a {
+  text-decoration: none;
+  color: #eee;
+}
+
+body, h1, h2, h3, p { 
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  list-style: none;
+}
