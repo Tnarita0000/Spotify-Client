@@ -21,7 +21,7 @@ const generateRandomString = function(length) {
   return text;
 };
 
-const rootPath = path.join(__dirname + '/public/view');
+const rootPath = path.join(__dirname + '/public/html');
 
 app.get('/', (req, res) => {
   res.sendFile(rootPath + '/home.html');
